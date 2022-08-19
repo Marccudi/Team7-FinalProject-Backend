@@ -2,6 +2,8 @@ package com.c6.replay.dto;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "game_have_genre")
 public class GameHaveGenre {
 	
 	@Id
