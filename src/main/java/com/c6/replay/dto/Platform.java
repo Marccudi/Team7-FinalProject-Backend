@@ -13,8 +13,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "genres")
-public class Genre {
+@Table(name = "platform")
+public class Platform {
 	@Id
 	private int id;
 	@Column
@@ -22,15 +22,15 @@ public class Genre {
 
 	@OneToMany
 	@JoinColumn(name = "id")
-	private List<GameHaveGenre> gameHaveGenre;
+	private List<Game> game;
 
-	public Genre() {
-	}
-
-	public Genre(int id, String name, List<GameHaveGenre> gameHaveGenre) {
+	public Platform(int id, String name, List<Game> game) {
 		this.id = id;
 		this.name = name;
-		this.gameHaveGenre = gameHaveGenre;
+		this.game = game;
+	}
+
+	public Platform() {
 	}
 
 	public int getId() {
@@ -42,9 +42,9 @@ public class Genre {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "gameHaveGenre")
-	public List<GameHaveGenre> getGameHaveGenre() {
-		return gameHaveGenre;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "game")
+	public List<Game> getGame() {
+		return game;
 	}
 
 	public void setId(int id) {
@@ -55,13 +55,13 @@ public class Genre {
 		this.name = name;
 	}
 
-	public void setGameHaveGenre(List<GameHaveGenre> gameHaveGenre) {
-		this.gameHaveGenre = gameHaveGenre;
+	public void setGame(List<Game> game) {
+		this.game = game;
 	}
 
 	@Override
 	public String toString() {
-		return "Genre [id=" + id + ", name=" + name + ", gameHaveGenre=" + gameHaveGenre + "]";
+		return "Platform [id=" + id + ", name=" + name + "]";
 	}
 
 }
