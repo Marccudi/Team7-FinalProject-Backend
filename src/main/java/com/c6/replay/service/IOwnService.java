@@ -14,6 +14,6 @@ public interface IOwnService {
 	
 	public Own updateOwn(Own own); // Update own
 	
-	public void deleteOwn(Long id); // Delete own
+	public void deleteOwn(Long id); // Delete own by id
 
 }
