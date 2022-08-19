@@ -14,6 +14,8 @@ public class Game {
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name = "title")
+	private String title;
 	@Column(name = "duration")
 	private int duration;
 	@Column(name = "year_released")
@@ -52,11 +54,12 @@ public class Game {
 		super();
 	}
 
-	public Game(int id, int duration, int yearReleased, String ageCalification, String description, Date dateInserted,
+	public Game(int id, String title, int duration, int yearReleased, String ageCalification, String description, Date dateInserted,
 			boolean enabled, Developer developer, Platform platform, List<Borrow> owns, List<Own> borrows,
 			List<GameHaveGenre> gameHaveGenres) {
 		super();
 		this.id = id;
+		this.title = title;
 		this.duration = duration;
 		this.yearReleased = yearReleased;
 		this.ageCalification = ageCalification;
@@ -76,6 +79,14 @@ public class Game {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public int getDuration() {
@@ -174,9 +185,10 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", duration=" + duration + ", yearReleased=" + yearReleased + ", ageCalification="
-				+ ageCalification + ", description=" + description + ", dateInserted=" + dateInserted + ", enabled="
-				+ enabled + ", owns=" + owns + ", borrows=" + borrows + ", gameHaveGenres=" + gameHaveGenres + "]";
+		return "Game [id=" + id + ", title=" + title + ", duration=" + duration + ", yearReleased=" + yearReleased
+				+ ", ageCalification=" + ageCalification + ", description=" + description + ", dateInserted="
+				+ dateInserted + ", enabled=" + enabled + ", developer=" + developer + ", platform=" + platform
+				+ ", owns=" + owns + ", borrows=" + borrows + ", gameHaveGenres=" + gameHaveGenres + "]";
 	}
 	
 	
