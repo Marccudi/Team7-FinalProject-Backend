@@ -37,11 +37,11 @@ public class Game {
 	
 	@OneToMany
 	@JoinColumn(name="id")
-	private List<Own> owns;
+	private List<Borrow> owns;
 	
 	@OneToMany
 	@JoinColumn(name="id")
-	private List<Borrow> borrows;
+	private List<Own> borrows;
 	
 	@OneToMany
 	@JoinColumn(name="id")
@@ -52,7 +52,7 @@ public class Game {
 	}
 
 	public Game(int id, int duration, int yearReleased, String ageCalification, String description, Date dateInserted,
-			boolean enabled, Developer developer, Platform platform, List<Own> owns, List<Borrow> borrows,
+			boolean enabled, Developer developer, Platform platform, List<Borrow> owns, List<Own> borrows,
 			List<GameHaveGenre> gameHaveGenres) {
 		super();
 		this.id = id;
@@ -143,21 +143,21 @@ public class Game {
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Own")
-	public List<Own> getOwns() {
+	public List<Borrow> getOwns() {
 		return owns;
 	}
 
-	public void setOwns(List<Own> owns) {
+	public void setOwns(List<Borrow> owns) {
 		this.owns = owns;
 	}
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Borrow")
-	public List<Borrow> getBorrows() {
+	public List<Own> getBorrows() {
 		return borrows;
 	}
 
-	public void setBorrows(List<Borrow> borrows) {
+	public void setBorrows(List<Own> borrows) {
 		this.borrows = borrows;
 	}
 

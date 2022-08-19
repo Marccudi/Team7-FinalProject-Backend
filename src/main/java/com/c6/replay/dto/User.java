@@ -39,19 +39,19 @@ public class User {
 	
 	@OneToMany
 	@JoinColumn(name="id_owner")
-	private List<Borrow> borrowsOwner; // list of the borrows where the user is the owner of the game
+	private List<Own> borrowsOwner; // list of the borrows where the user is the owner of the game
 	
 	@OneToMany
 	@JoinColumn(name="id_borrower")
-	private List<Borrow> borrowsBorrower; // list of the borrows where the user is the borrower of the game
+	private List<Own> borrowsBorrower; // list of the borrows where the user is the borrower of the game
 	
 	@OneToMany
 	@JoinColumn(name="id_old_owner")
-	private List<Own> ownOwner; // list of the owns where the user is the old owner of the game
+	private List<Borrow> ownOwner; // list of the owns where the user is the old owner of the game
 	
 	@OneToMany
 	@JoinColumn(name="id_new_owner")
-	private List<Own> ownBorrower; // list of the owns where the user is the new owner of the game
+	private List<Borrow> ownBorrower; // list of the owns where the user is the new owner of the game
 
 	/**
 	 * @param user_name
@@ -164,14 +164,14 @@ public class User {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Borrow")
-	public List<Borrow> getBorrowsOwner() {
+	public List<Own> getBorrowsOwner() {
 		return borrowsOwner;
 	}
 
 	/**
 	 * @param borrowsOwner the borrowsOwner to set
 	 */
-	public void setBorrowsOwner(List<Borrow> borrowsOwner) {
+	public void setBorrowsOwner(List<Own> borrowsOwner) {
 		this.borrowsOwner = borrowsOwner;
 	}
 
@@ -180,14 +180,14 @@ public class User {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Borrow")
-	public List<Borrow> getBorrowsBorrower() {
+	public List<Own> getBorrowsBorrower() {
 		return borrowsBorrower;
 	}
 
 	/**
 	 * @param borrowsBorrower the borrowsBorrower to set
 	 */
-	public void setBorrowsBorrower(List<Borrow> borrowsBorrower) {
+	public void setBorrowsBorrower(List<Own> borrowsBorrower) {
 		this.borrowsBorrower = borrowsBorrower;
 	}
 
@@ -196,14 +196,14 @@ public class User {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Own")
-	public List<Own> getOwnOwner() {
+	public List<Borrow> getOwnOwner() {
 		return ownOwner;
 	}
 
 	/**
 	 * @param ownOwner the ownOwner to set
 	 */
-	public void setOwnOwner(List<Own> ownOwner) {
+	public void setOwnOwner(List<Borrow> ownOwner) {
 		this.ownOwner = ownOwner;
 	}
 
@@ -212,14 +212,14 @@ public class User {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Own")
-	public List<Own> getOwnBorrower() {
+	public List<Borrow> getOwnBorrower() {
 		return ownBorrower;
 	}
 
 	/**
 	 * @param ownBorrower the ownBorrower to set
 	 */
-	public void setOwnBorrower(List<Own> ownBorrower) {
+	public void setOwnBorrower(List<Borrow> ownBorrower) {
 		this.ownBorrower = ownBorrower;
 	}
 
