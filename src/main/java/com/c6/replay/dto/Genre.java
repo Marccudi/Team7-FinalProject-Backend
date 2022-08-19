@@ -19,11 +19,49 @@ public class Genre {
 	private int id;
 	@Column
 	private String name;
-	
+
 	@OneToMany
 	@JoinColumn(name = "id")
-	private List<Game> game;
+	private List<GameHaveGenre> gameHaveGenre;
 
+	public Genre() {
+	}
 
-	
+	public Genre(int id, String name, List<GameHaveGenre> gameHaveGenre) {
+		this.id = id;
+		this.name = name;
+		this.gameHaveGenre = gameHaveGenre;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "gameHaveGenre")
+	public List<GameHaveGenre> getGameHaveGenre() {
+		return gameHaveGenre;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setGameHaveGenre(List<GameHaveGenre> gameHaveGenre) {
+		this.gameHaveGenre = gameHaveGenre;
+	}
+
+	@Override
+	public String toString() {
+		return "Genre [id=" + id + ", name=" + name + ", gameHaveGenre=" + gameHaveGenre + "]";
+	}
+
 }
