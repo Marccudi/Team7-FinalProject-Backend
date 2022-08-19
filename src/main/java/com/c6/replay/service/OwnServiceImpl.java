@@ -3,10 +3,12 @@ package com.c6.replay.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.c6.replay.dao.IOwnDAO;
 import com.c6.replay.dto.Own;
 
+@Service
 public class OwnServiceImpl implements IOwnService{
 	
 	@Autowired
