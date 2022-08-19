@@ -23,6 +23,7 @@ public class Game {
 	@Column(name = "description")
 	private String description;
 	@Column(name = "date_inserted")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateInserted;
 	@Column(name = "enabled")
 	private boolean enabled;
