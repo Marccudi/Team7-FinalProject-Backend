@@ -1,5 +1,5 @@
 package com.c6.replay.service;
 
-public class GameServiceImpl {
+public class GameServiceImpl implements IGameService {
 
 }
