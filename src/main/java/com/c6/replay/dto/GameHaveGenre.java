@@ -10,7 +10,7 @@ public class GameHaveGenre {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_game")
-	Game developer;
+	Game game;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_genre")
@@ -20,10 +20,10 @@ public class GameHaveGenre {
 		super();
 	}
 
-	public GameHaveGenre(int id, Game developer, Genre genre) {
+	public GameHaveGenre(int id, Game game, Genre genre) {
 		super();
 		this.id = id;
-		this.developer = developer;
+		this.game = game;
 		this.genre = genre;
 	}
 
@@ -35,12 +35,12 @@ public class GameHaveGenre {
 		this.id = id;
 	}
 
-	public Game getDeveloper() {
-		return developer;
+	public Game getGame() {
+		return game;
 	}
 
-	public void setDeveloper(Game developer) {
-		this.developer = developer;
+	public void setGame(Game game) {
+		this.game = game;
 	}
 
 	public Genre getGenre() {
@@ -53,7 +53,7 @@ public class GameHaveGenre {
 
 	@Override
 	public String toString() {
-		return "GameHaveGenre [id=" + id + ", developer=" + developer + ", genre=" + genre + "]";
+		return "GameHaveGenre [id=" + id + ", game=" + game + ", genre=" + genre + "]";
 	}
 	
 	
