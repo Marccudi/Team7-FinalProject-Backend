@@ -188,7 +188,7 @@ public class Game {
 		return "Game [id=" + id + ", title=" + title + ", duration=" + duration + ", yearReleased=" + yearReleased
 				+ ", ageCalification=" + ageCalification + ", description=" + description + ", dateInserted="
 				+ dateInserted + ", enabled=" + enabled + ", developer=" + developer + ", platform=" + platform
-				+ ", owns=" + owns + ", borrows=" + borrows + ", gameHaveGenres=" + gameHaveGenres + "]";
+				+ "]";
 	}
 	
 	
