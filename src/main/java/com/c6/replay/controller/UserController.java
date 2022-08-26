@@ -3,6 +3,9 @@ package com.c6.replay.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +25,25 @@ public class UserController {
 	@Autowired
 	UserServiceImpl userServiceImpl;
 	
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	public UserController(UserServiceImpl userServiceImpl, BCryptPasswordEncoder bCryptPasswordEncoder) {
+		super();
+		this.userServiceImpl = userServiceImpl;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	}
+	
+	@GetMapping("/response-entity-builder")
+	public ResponseEntity<String> usingResponseEntityBuilderAndHttpHeaders() {
+	    HttpHeaders responseHeaders = new HttpHeaders();
+	    responseHeaders.set("Header", 
+	      "Value-ResponseEntityBuilderWithHttpHeaders");
+
+	    return ResponseEntity.ok()
+	      .headers(responseHeaders)
+	      .body("Response with header using ResponseEntity");
+	}
+
 	@GetMapping("/users")
 	public List<User> listUsers(){
 		return userServiceImpl.listUsers();
@@ -29,6 +51,7 @@ public class UserController {
 	
 	@PostMapping("/users")
 	public User saveUser(@RequestBody User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		return userServiceImpl.saveUser(user);
 	}
 	
