@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,23 +14,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.c6.replay.dao.IUserDAO;
 import com.c6.replay.dto.User;
 import com.c6.replay.service.UserServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+//@RequestMapping("/api")
 public class UserController {
 
 	@Autowired
 	UserServiceImpl userServiceImpl;
 	
+	private IUserDAO iUserDAO;
+	
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public UserController(UserServiceImpl userServiceImpl, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public UserController(IUserDAO iUserDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		super();
-		this.userServiceImpl = userServiceImpl;
+		this.iUserDAO = iUserDAO;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	

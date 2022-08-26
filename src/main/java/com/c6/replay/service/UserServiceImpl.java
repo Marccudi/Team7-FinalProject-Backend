@@ -14,6 +14,10 @@ public class UserServiceImpl implements IUserService{
 	@Autowired
 	IUserDAO iUserDAO;
 	
+	public UserServiceImpl(IUserDAO IUserDAO) {
+		this.iUserDAO = IUserDAO;
+	}
+	
 	@Override
 	public List<User> listUsers() {
 		// TODO Auto-generated method stub
