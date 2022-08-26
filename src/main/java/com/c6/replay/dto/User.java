@@ -37,6 +37,9 @@ public class User {
 	@Column(name="last_name")
 	private String last_name; // last name of the user
 	
+	@Column(name="role")
+	private String role;
+	
 	@OneToMany
 	@JoinColumn(name="id_owner")
 	private List<Own> borrowsOwner; // list of the borrows where the user is the owner of the game
@@ -60,12 +63,13 @@ public class User {
 	 * @param first_name
 	 * @param last_name
 	 */
-	public User(String user_name, String email, String password, String first_name, String last_name) {
+	public User(String user_name, String email, String password, String first_name, String last_name, String role) {
 		this.user_name = user_name;
 		this.email = email;
 		this.password = password;
 		this.first_name = first_name;
 		this.last_name = last_name;
+		this.role=role;
 	}
 
 	/**
@@ -160,6 +164,20 @@ public class User {
 	}
 
 	/**
+	 * @return the role
+	 */
+	public String getRole() {
+		return role;
+	}
+
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	/**
 	 * @return the borrowsOwner
 	 */
 	@JsonIgnore
@@ -226,6 +244,6 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", user_name=" + user_name + ", email=" + email + ", password=" + password
-				+ ", first_name=" + first_name + ", last_name=" + last_name + "]";
+				+ ", first_name=" + first_name + ", last_name=" + last_name + ", role= "+ role +"]";
 	}
 }

@@ -53,6 +53,7 @@ public class UserController {
 		userSel.setPassword(user.getPassword());
 		userSel.setFirst_name(user.getFirst_name());
 		userSel.setLast_name(user.getLast_name());
+		userSel.setRole(user.getRole());
 		
 		userAct=userServiceImpl.updateUser(userSel);
 		
