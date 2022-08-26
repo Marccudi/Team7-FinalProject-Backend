@@ -1,5 +1,6 @@
 package com.c6.replay.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,14 @@ public class GameController {
 	
 	@GetMapping("/games")
 	public List<Game> listGames() {
-		return gameServiceImpl.listGames();
+		List<Game> allGames = gameServiceImpl.listGames();
+		List<Game> enabledGames = new ArrayList<Game>();
+		for (Game game : allGames) {
+			if ( game.isEnabled() ) {
+				enabledGames.add(game);
+			}
+		}
+		return enabledGames;
 	}
 	
 	@PostMapping("/games")
@@ -35,7 +43,13 @@ public class GameController {
 		
 		System.out.println("Game by ID: "+game_xid);
 		
-		return game_xid;
+		if(game_xid.isEnabled()) {
+			return game_xid;
+		} else {
+			System.out.println("Game not enabled");
+			return null;
+		}
+		
 	}
 	
 	@PutMapping("/games/{id}")
@@ -67,7 +81,8 @@ public class GameController {
 	
 	@DeleteMapping("/games/{id}")
 	public void deleteGame(@PathVariable(name="id")int id) {
-		gameServiceImpl.deleteGame(id);
+		Game deletedGame = gameServiceImpl.gameXID(id);
+		deletedGame.setEnabled(false);
 	}
 
 }
