@@ -61,7 +61,7 @@ public class Genre {
 
 	@Override
 	public String toString() {
-		return "Genre [id=" + id + ", name=" + name + ", gameHaveGenre=" + gameHaveGenre + "]";
+		return "Genre [id=" + id + ", name=" + name + "]";
 	}
 
 }

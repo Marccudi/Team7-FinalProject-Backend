@@ -226,8 +226,6 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", user_name=" + user_name + ", email=" + email + ", password=" + password
-				+ ", first_name=" + first_name + ", last_name=" + last_name + ", borrowsOwner=" + borrowsOwner
-				+ ", borrowsBorrower=" + borrowsBorrower + ", ownOwner=" + ownOwner + ", ownBorrower=" + ownBorrower
-				+ "]";
+				+ ", first_name=" + first_name + ", last_name=" + last_name + "]";
 	}
 }
