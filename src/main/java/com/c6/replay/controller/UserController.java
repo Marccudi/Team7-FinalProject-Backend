@@ -30,13 +30,11 @@ public class UserController {
 	@Autowired
 	UserServiceImpl userServiceImpl;
 	
-	private IUserDAO iUserDAO;
-	
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public UserController(IUserDAO iUserDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public UserController(UserServiceImpl userServiceImpl, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		super();
-		this.iUserDAO = iUserDAO;
+		this.userServiceImpl = userServiceImpl;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	

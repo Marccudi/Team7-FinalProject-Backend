@@ -39,11 +39,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
 		try {
+			System.out.println("aa");
 			com.c6.replay.dto.User credenciales = new ObjectMapper().readValue(request.getInputStream(), com.c6.replay.dto.User.class);
 
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 					credenciales.getUser_name(), credenciales.getPassword(), new ArrayList<>()));
 		} catch (IOException e) {
+			System.out.println("aa");
 			throw new RuntimeException(e);
 		}
 	}
@@ -59,7 +61,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		response.addHeader(HEADER_AUTHORIZACION_KEY, TOKEN_BEARER_PREFIX + " " + token);//devuelve token por cabecera
 		response.getWriter().write("{\"token\": \"" + token + "\"}");//devuelve token por body
 		System.out.println(response.getHeader(HEADER_AUTHORIZACION_KEY));
-	
 	}
 	
 }
