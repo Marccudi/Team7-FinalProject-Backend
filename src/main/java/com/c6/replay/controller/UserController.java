@@ -3,7 +3,6 @@ package com.c6.replay.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,11 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.c6.replay.dao.IUserDAO;
 import com.c6.replay.dto.User;
 import com.c6.replay.service.UserServiceImpl;
 
@@ -30,13 +27,10 @@ public class UserController {
 	@Autowired
 	UserServiceImpl userServiceImpl;
 	
-	private IUserDAO iUserDAO;
-	
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public UserController(IUserDAO iUserDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public UserController(BCryptPasswordEncoder bCryptPasswordEncoder) {
 		super();
-		this.iUserDAO = iUserDAO;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	
