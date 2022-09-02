@@ -28,7 +28,7 @@ public class UserController {
 	UserServiceImpl userServiceImpl;
 	
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
 	public UserController(BCryptPasswordEncoder bCryptPasswordEncoder) {
 		super();
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
