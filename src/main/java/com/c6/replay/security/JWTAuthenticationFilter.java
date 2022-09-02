@@ -39,14 +39,12 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
 		try {
-			System.out.println("aa1");
 			com.c6.replay.dto.User credenciales = new ObjectMapper().readValue(request.getInputStream(), com.c6.replay.dto.User.class);
 
 			System.out.println(credenciales);
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 					credenciales.getUsername(), credenciales.getPassword(), new ArrayList<>()));
 		} catch (IOException e) {
-			System.out.println("aa2");
 			throw new RuntimeException(e);
 		}
 	}
@@ -59,7 +57,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.setSubject(((User)auth.getPrincipal()).getUsername())
 				.setExpiration(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION_TIME))
 				.signWith(SignatureAlgorithm.HS512, SUPER_SECRET_KEY).compact();
-		System.out.println(token);
 		response.addHeader(HEADER_AUTHORIZACION_KEY, TOKEN_BEARER_PREFIX + " " + token);//devuelve token por cabecera
 		response.getWriter().write("{\"token\": \"" + token + "\"}");//devuelve token por body
 		System.out.println(response.getHeader(HEADER_AUTHORIZACION_KEY));
