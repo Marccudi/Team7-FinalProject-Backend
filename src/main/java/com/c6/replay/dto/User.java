@@ -22,8 +22,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; // AutoIncremental ID
 	
-	@Column(name="user_name")
-	private String user_name; // username of the user
+	@Column(name="username")
+	private String username; // username of the user
 	
 	@Column(name="email")
 	private String email; // e-mail of the user
@@ -63,8 +63,8 @@ public class User {
 	 * @param first_name
 	 * @param last_name
 	 */
-	public User(String user_name, String email, String password, String first_name, String last_name, String role) {
-		this.user_name = user_name;
+	public User(String username, String email, String password, String first_name, String last_name, String role) {
+		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.first_name = first_name;
@@ -96,15 +96,15 @@ public class User {
 	/**
 	 * @return the user_name
 	 */
-	public String getUser_name() {
-		return user_name;
+	public String getUsername() {
+		return username;
 	}
 
 	/**
 	 * @param user_name the user_name to set
 	 */
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	/**
@@ -243,7 +243,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", user_name=" + user_name + ", email=" + email + ", password=" + password
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
 				+ ", first_name=" + first_name + ", last_name=" + last_name + ", role= "+ role +"]";
 	}
 }

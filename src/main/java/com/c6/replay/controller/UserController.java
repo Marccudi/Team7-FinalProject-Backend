@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ import com.c6.replay.service.UserServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-//@RequestMapping("/api")
+@RequestMapping("/api")
 public class UserController {
 
 	@Autowired
@@ -72,7 +73,7 @@ public class UserController {
 		
 		userSel= userServiceImpl.userXID(id);
 		
-		userSel.setUser_name(user.getUser_name());
+		userSel.setUsername(user.getUsername());
 		userSel.setEmail(user.getEmail());
 		userSel.setPassword(user.getPassword());
 		userSel.setFirst_name(user.getFirst_name());
