@@ -29,6 +29,8 @@ public class Game {
 	private Date dateInserted;
 	@Column(name = "enabled")
 	private boolean enabled;
+	@Column(name = "borrowed")
+	private boolean borrowed;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_developer")
@@ -71,6 +73,7 @@ public class Game {
 		this.owns = owns;
 		this.borrows = borrows;
 		this.gameHaveGenres = gameHaveGenres;
+		this.borrowed = false;
 	}
 
 	public int getId() {
@@ -153,6 +156,20 @@ public class Game {
 		this.platform = platform;
 	}
 
+	/**
+	 * @return the borrowed
+	 */
+	public boolean isBorrowed() {
+		return borrowed;
+	}
+
+	/**
+	 * @param borrowed the borrowed to set
+	 */
+	public void setBorrowed(boolean borrowed) {
+		this.borrowed = borrowed;
+	}
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Own")
 	public List<Borrow> getOwns() {
@@ -187,9 +204,9 @@ public class Game {
 	public String toString() {
 		return "Game [id=" + id + ", title=" + title + ", duration=" + duration + ", yearReleased=" + yearReleased
 				+ ", ageCalification=" + ageCalification + ", description=" + description + ", dateInserted="
-				+ dateInserted + ", enabled=" + enabled + ", developer=" + developer + ", platform=" + platform
-				+ "]";
+				+ dateInserted + ", enabled=" + enabled + ", borrowed=" + borrowed + ", developer=" + developer
+				+ ", platform=" + platform + ", owns=" + owns + ", borrows=" + borrows + ", gameHaveGenres="
+				+ gameHaveGenres + "]";
 	}
-	
-	
+
 }

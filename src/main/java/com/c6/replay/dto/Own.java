@@ -33,6 +33,9 @@ public class Own {
 	
 	@Column(name="exchange_date")
 	private Date exchange_date; // Exchange date
+	
+	@Column(name="pending")
+	private boolean pending;
 
 	/**
 	 * 
@@ -55,6 +58,7 @@ public class Own {
 		this.userOldOwner = userOldOwner;
 		this.userNewOwner = userNewOwner;
 		this.exchange_date = lend_date;
+		this.pending=true;
 	}
 
 	/**
@@ -126,12 +130,24 @@ public class Own {
 	public void setExchange_date(Date lend_date) {
 		this.exchange_date = lend_date;
 	}
+	
+	/**
+	 * @return the pending
+	 */
+	public boolean isPending() {
+		return pending;
+	}
+
+	/**
+	 * @param pending the pending to set
+	 */
+	public void setPending(boolean pending) {
+		this.pending = pending;
+	}
 
 	@Override
 	public String toString() {
-		return "Borrow [id=" + id + ", game=" + game + ", userOldOwner=" + userOldOwner + ", userNewOwner="
-				+ userNewOwner + ", lend_date=" + exchange_date + "]";
-	}
-
-	
+		return "Own [id=" + id + ", game=" + game + ", userOldOwner=" + userOldOwner + ", userNewOwner=" + userNewOwner
+				+ ", exchange_date=" + exchange_date + ", pending=" + pending + "]";
+	}	
 }
