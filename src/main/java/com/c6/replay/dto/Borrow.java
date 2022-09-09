@@ -36,6 +36,9 @@ public class Borrow {
 	
 	@Column(name="return_date")
 	private Date return_date; // End date of loan
+	
+	@Column(name="pending")
+	private boolean pending;
 
 	/**
 	 * 
@@ -58,6 +61,7 @@ public class Borrow {
 		this.userBorrower = userBorrower;
 		this.lend_date = lend_date;
 		this.return_date = return_date;
+		this.pending=true;
 	}
 
 	/**
@@ -144,9 +148,23 @@ public class Borrow {
 		this.return_date = return_date;
 	}
 
+	/**
+	 * @return the pending
+	 */
+	public boolean isPending() {
+		return pending;
+	}
+
+	/**
+	 * @param pending the pending to set
+	 */
+	public void setPending(boolean pending) {
+		this.pending = pending;
+	}
+
 	@Override
 	public String toString() {
-		return "Own [id=" + id + ", game=" + game + ", userOwner=" + userOwner + ", userBorrower=" + userBorrower
-				+ ", lend_date=" + lend_date + ", return_date=" + return_date + "]";
+		return "Borrow [id=" + id + ", game=" + game + ", userOwner=" + userOwner + ", userBorrower=" + userBorrower
+				+ ", lend_date=" + lend_date + ", return_date=" + return_date + ", pending=" + pending + "]";
 	}
 }
