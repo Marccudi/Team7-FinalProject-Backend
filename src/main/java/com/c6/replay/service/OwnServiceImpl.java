@@ -1,5 +1,6 @@
 package com.c6.replay.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,18 @@ public class OwnServiceImpl implements IOwnService{
 	public List<Own> listOwns() {
 		// TODO Auto-generated method stub
 		return iOwnDAO.findAll();
+	}
+	
+	@Override
+    public List<Own> listOwnsByState(boolean state, Long id) {
+		 List<Own> ownsByState =  new ArrayList<>();
+
+	        for(Own own : listOwns()) {
+	            if(own.isPending()==state && own.getUserOldOwner().getId() == id) {
+	                ownsByState.add(own);
+	            }
+	        }
+	        return ownsByState;
 	}
 
 	@Override

@@ -40,6 +40,11 @@ public class OwnController {
 		return ownXID;
 	}
 	
+	@GetMapping("/owns/{id}/{state}")
+    public List<Own> listOwnsState(@PathVariable(name="state") boolean state, @PathVariable(name="id")Long id){
+        return ownServiceImpl.listOwnsByState(state, id);
+    }
+	
 	@PutMapping("/owns/{id}")
 	public Own updateOwn(@PathVariable(name="id") Long id, @RequestBody Own own) {
 		

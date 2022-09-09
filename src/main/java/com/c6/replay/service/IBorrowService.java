@@ -15,5 +15,7 @@ public interface IBorrowService {
 	public Borrow updateBorrow(Borrow borrow); // Update borrow
 	
 	public void deleteBorrow(Long id); // Delete Borrow by id
+	
+	public List<Borrow> listByUserBorrower(int user);
 
 }

@@ -1,5 +1,6 @@
 package com.c6.replay.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,17 @@ public class BorrowServiceImpl implements IBorrowService{
 	public void deleteBorrow(Long id) {
 		// TODO Auto-generated method stub
 		iBorrowDAO.deleteById(id);
+	}
+	
+	@Override
+	public List<Borrow> listByUserBorrower(int user) {
+		List<Borrow> borrows = new ArrayList<>();
+		for (Borrow borrow : listBorrows()) {
+			if(borrow.getUserBorrower().getId() == user) {
+				borrows.add(borrow);
+			}
+		}
+		return borrows;
 	}
 
 }

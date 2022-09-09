@@ -8,6 +8,8 @@ public interface IOwnService {
 	
 	public List<Own> listOwns(); // List all the owns
 	
+	public List<Own> listOwnsByState(boolean state, Long id);
+	
 	public Own saveOwn(Own own); // Save a own
 	
 	public Own ownXID(Long id); // List one own by id

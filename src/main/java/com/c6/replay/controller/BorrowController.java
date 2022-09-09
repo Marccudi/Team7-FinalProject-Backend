@@ -1,5 +1,8 @@
 package com.c6.replay.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +42,11 @@ public class BorrowController {
 		return borrowXID;
 	}
 	
+	@GetMapping("/borrows/borrower/{id}")
+	public List<Borrow> borrowsByBorrower(@PathVariable(name="id") int id) {
+		return borrowServiceImpl.listByUserBorrower(id);
+	}
+	
 	@PutMapping("/borrows/{id}")
 	public Borrow updateBorrow(@PathVariable(name="id") Long id, @RequestBody Borrow borrow) {
 		
@@ -54,6 +62,31 @@ public class BorrowController {
 		borrowSel.setReturn_date(borrow.getReturn_date());
 		
 		borrowAct=borrowServiceImpl.updateBorrow(borrowSel);
+		
+		return borrowAct;
+	}
+	
+	@PutMapping("/acceptborrow/{id}")
+	public Borrow updateBorrow(@PathVariable(name="id") Long id, @RequestBody String returnDate) {
+		
+		Borrow borrowSel = new Borrow();
+		Borrow borrowAct =  new Borrow();
+		
+		borrowSel=borrowServiceImpl.borrowXID(id);
+		
+		try {
+			borrowSel.setLend_date(new Date());
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			date = sdf.parse(returnDate);
+			borrowSel.setReturn_date(date);
+			borrowSel.setPending(false);
+			borrowSel.getGame().setBorrowed(true);
+			
+			borrowAct=borrowServiceImpl.updateBorrow(borrowSel);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		return borrowAct;
 	}
