@@ -67,4 +67,9 @@ public class OwnController {
 			return "Error: you cannot delete this Owning";
 		}
 	}
+	
+	@GetMapping("/owns/game/{id}")
+	public Own listLastOwnsGame(@PathVariable(name="id") Long id){
+		return ownServiceImpl.lastOwnGame(id);
+	}
 }
