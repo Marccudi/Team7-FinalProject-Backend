@@ -45,7 +45,7 @@ public class OwnServiceImpl implements IOwnService{
 	}
 
 	@Override
-	public Own lastOwnGame(Long idGame) {
+	public Own lastOwnGame(int idGame) {
 		Own lastOwn = new Own();
 		 for (Own own : listOwns()) {             
 			 if(own.getGame().getId() == idGame) {                 

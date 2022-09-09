@@ -14,7 +14,7 @@ public interface IGameService {
 	
 	public Game updateGame(Game game);
 	
-	public void deleteGame(int id);
+	public Game deleteGame(int gameId, int userId);
 
 	List<Game> GameXDeveloper(int Developerid);
 

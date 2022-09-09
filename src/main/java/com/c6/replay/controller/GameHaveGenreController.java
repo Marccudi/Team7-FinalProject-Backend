@@ -75,4 +75,7 @@ public class GameHaveGenreController {
 	public List<Game> gamesXGenere(@PathVariable(name="id")int genreId){
 		return gameHaveGenreServiceImpl.gamesXGenere(genreId);
 	}
+	
+	
+
 }

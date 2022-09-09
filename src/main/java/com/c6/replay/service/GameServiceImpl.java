@@ -15,7 +15,10 @@ import com.c6.replay.dto.Own;
 
 @Service
 public class GameServiceImpl implements IGameService {
+	@Autowired
+	OwnServiceImpl ownServiceImpl;
 
+	
 	@Autowired
 	IGameDAO iGameDAO;
 	
@@ -40,8 +43,14 @@ public class GameServiceImpl implements IGameService {
 	}
 
 	@Override
-	public void deleteGame(int id) {
-		iGameDAO.deleteById(id);
+	public Game deleteGame(int gameId, int userId) {
+		Own a = ownServiceImpl.lastOwnGame(gameId);
+		if (a.getUserNewOwner().getId() == userId) {
+			return gameXID(gameId);
+		}else {
+			return null;
+		}
+		
 	}
 	
 	@Override
