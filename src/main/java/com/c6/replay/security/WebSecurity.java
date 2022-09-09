@@ -1,6 +1,7 @@
 package com.c6.replay.security;
 
 import static com.c6.replay.security.Constants.LOGIN_URL;
+import static com.c6.replay.security.Constants.REGISTER_URL;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,7 +45,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.cors().and()
 			.csrf().disable()
-			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
+			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll().antMatchers(HttpMethod.POST, REGISTER_URL).permitAll()
 			.anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager()));
