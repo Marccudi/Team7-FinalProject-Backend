@@ -16,4 +16,10 @@ public interface IGameService {
 	
 	public void deleteGame(int id);
 
+	List<Game> GameXDeveloper(int Developerid);
+
+	List<Game> GameXPlatform(int Platformid);
+
+	List<Game> listGameIfBorrowed(boolean borrowed);
+
 }

@@ -11,6 +11,7 @@ import com.c6.replay.dao.IGameDAO;
 import com.c6.replay.dto.Game;
 import com.c6.replay.dto.GameHaveGenre;
 import com.c6.replay.dto.Genre;
+import com.c6.replay.dto.Own;
 
 @Service
 public class GameServiceImpl implements IGameService {
@@ -43,6 +44,7 @@ public class GameServiceImpl implements IGameService {
 		iGameDAO.deleteById(id);
 	}
 	
+	@Override
 	public List<Game> GameXDeveloper(int Developerid){
 		List<Game> a = listGames();
 		List<Game> finale = new ArrayList<>();
@@ -55,6 +57,7 @@ public class GameServiceImpl implements IGameService {
 		return finale;
 	}
 	
+	@Override
 	public List<Game> GameXPlatform(int Platformid){
 		List<Game> a = listGames();
 		List<Game> finale = new ArrayList<>();
@@ -67,16 +70,20 @@ public class GameServiceImpl implements IGameService {
 		return finale;
 	}
 	
-	public List<Game> GameXEstado(boolean enabled){
+	@Override
+	public List<Game> listGameIfBorrowed(boolean borrowed){
 		List<Game> a = listGames();
 		List<Game> finale = new ArrayList<>();
 
 		for (int i = 0; i < a.size(); i++) {
-			if (enabled == a.get(i).getPlatform().getId()) {
+			if (borrowed == a.get(i).isBorrowed()) {
 				finale.add(a.get(i));
 			}
 		}
 		return finale;
 	}
 
+	
+
+	
 }
