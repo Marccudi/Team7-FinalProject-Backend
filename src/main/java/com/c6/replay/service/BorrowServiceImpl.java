@@ -56,4 +56,39 @@ public class BorrowServiceImpl implements IBorrowService{
 		return borrows;
 	}
 
+	public List<Borrow> listBorrowByUser(Long id) {
+		List<Borrow> borrowsByUser =  new ArrayList<>();
+
+		for(Borrow borrow : listBorrows()) {
+			if(borrow.getUserBorrower().getId()==id || borrow.getUserOwner().getId()==id) {
+				borrowsByUser.add(borrow);
+			}
+		}
+		return borrowsByUser;
+	}
+
+	@Override
+	public List<Borrow> listBorrowByState(boolean state, Long id) {
+		List<Borrow> borrowsByState =  new ArrayList<>();
+
+		for(Borrow borrow : listBorrowByUser(id)) {
+			if(borrow.isPending()==state) {
+				borrowsByState.add(borrow);
+			}
+		}
+		return borrowsByState;
+	}
+
+	@Override
+	public List<Borrow> listBorrowByUserOwner(Long id) {
+		 List<Borrow> borrows = new ArrayList<>();         
+		 for (Borrow borrow : listBorrows()) {             
+			 if(borrow.getUserOwner().getId() == id) {                 
+				 borrows.add(borrow);             
+				 }         
+			 }         
+		 return borrows;    
+
+	}
+
 }

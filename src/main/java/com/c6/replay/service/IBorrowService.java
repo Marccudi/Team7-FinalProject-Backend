@@ -16,6 +16,14 @@ public interface IBorrowService {
 	
 	public void deleteBorrow(Long id); // Delete Borrow by id
 	
+
 	public List<Borrow> listByUserBorrower(int user);
+
+	public List<Borrow> listBorrowByState(boolean state, Long id);
+	
+	public List<Borrow> listBorrowByUser(Long id);
+	
+	public List<Borrow> listBorrowByUserOwner(Long id);
+
 
 }

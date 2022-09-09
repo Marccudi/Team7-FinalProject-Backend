@@ -57,4 +57,16 @@ public class OwnServiceImpl implements IOwnService{
 		iOwnDAO.deleteById(id);
 	}
 
+	@Override
+	public Own lastOwnGame(int idGame) {
+		Own lastOwn = new Own();
+		 for (Own own : listOwns()) {             
+			 if(own.getGame().getId() == idGame) {                 
+				 lastOwn = own;             
+				 }         
+			 }           
+		return lastOwn;
+	}
+
+	
 }

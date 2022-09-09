@@ -100,5 +100,19 @@ public class BorrowController {
 			return "Error: you cannot delete this borrowing";
 		}
 	}
+	
+	@GetMapping("/borrows/user/{id}")
+	public List<Borrow> listBorrowsUser(@PathVariable(name="id") Long id){
+		return borrowServiceImpl.listBorrowByUser(id);
+	}
+	
+	@GetMapping("/borrows/{id}/{state}")
+	public List<Borrow> listBorrowsState(@PathVariable(name="state") boolean state, @PathVariable(name="id") Long id){
+		return borrowServiceImpl.listBorrowByState(state, id);
+	}
 
+	@GetMapping("/borrows/owner/{id}")
+    public List<Borrow> borrowsByBorrower(@PathVariable(name="id") Long id) {
+        return borrowServiceImpl.listBorrowByUserOwner(id);
+    }
 }

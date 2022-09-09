@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.c6.replay.dto.Game;
 import com.c6.replay.dto.GameHaveGenre;
 import com.c6.replay.service.GameHaveGenreServiceImpl;
 
@@ -70,4 +71,11 @@ public class GameHaveGenreController {
 		gameHaveGenreServiceImpl.deleteGameHaveGenre(id);
 	}
 	
+	@GetMapping("/gameHaveGenres/genre/{id}")
+	public List<Game> gamesXGenere(@PathVariable(name="id")int genreId){
+		return gameHaveGenreServiceImpl.gamesXGenere(genreId);
+	}
+	
+	
+
 }

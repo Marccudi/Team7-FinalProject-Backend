@@ -79,10 +79,31 @@ public class GameController {
 		return updatedGame;
 	}
 	
-	@DeleteMapping("/games/{id}")
-	public void deleteGame(@PathVariable(name="id")int id) {
-		Game deletedGame = gameServiceImpl.gameXID(id);
-		deletedGame.setEnabled(false);
+	@DeleteMapping("/games/{gameId}/{userId}")
+	public String deleteGame(@PathVariable(name="gameId")int gameId,@PathVariable(name="userId")int userId) {
+		Game deletedGame = gameServiceImpl.deleteGame(gameId, userId);
+		if (deletedGame == null) {
+			return "No eres su propietario";
+		} else {
+			deletedGame.setEnabled(false);
+			return "Juego desactivado";
+		}
+		
 	}
+
+	@GetMapping("/games/developer/{id}")
+	public List<Game> GameXDeveloper(@PathVariable(name="id")int developerid){
+		return gameServiceImpl.GameXDeveloper(developerid);
+	}
+	@GetMapping("/games/platform/{id}")
+	public List<Game> GameXPlatform(@PathVariable(name="id") int platformid){
+		return gameServiceImpl.GameXPlatform(platformid);
+	}
+	
+	@GetMapping("/games/borrowed/{borrowed}")
+	List<Game> listGameIfBorrowed(@PathVariable(name="borrowed")boolean borrowed){
+		return gameServiceImpl.listGameIfBorrowed(borrowed);
+	}
+
 
 }
