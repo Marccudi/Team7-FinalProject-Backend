@@ -59,7 +59,7 @@ We have different objects:
 
 ### User
 
-**Sample structure:** { "id": 1, "username": "example", "email": "smelgar@example.com", "password": "...", "first_name": "example", "last_name": "example", "role": "user" }
+**Sample structure:** { "id": 1, "username": "example", "email": "example@example.com", "password": "...", "first_name": "example", "last_name": "example", "role": "user" }
 
 * GET     ->  /api/users       ->  Returns a list of all the users
 * GET     ->  /api/users/{id}  ->  Returns the user that has the given id
