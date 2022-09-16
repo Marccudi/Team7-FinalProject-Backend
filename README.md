@@ -19,7 +19,7 @@ We have different objects:
 
 ### Developer
 
-Sample structure: { "id": 1, "name": "Nintendo"}
+**Sample structure:** { "id": 1, "name": "Nintendo"}
 
 * GET     ->  /api/developers       ->  Returns a list of all the developers
 * GET     ->  /api/developers/{id}  ->  Returns the developer that has the given id
@@ -29,7 +29,7 @@ Sample structure: { "id": 1, "name": "Nintendo"}
 
 ### Platform
 
-Sample structure: { "id": 1, "name": "PC" }
+**Sample structure:** { "id": 1, "name": "PC" }
 
 * GET     ->  /api/platforms       ->  Returns a list of all the platforms
 * GET     ->  /api/platforms/{id}  ->  Returns the platform that has the given id
@@ -39,7 +39,7 @@ Sample structure: { "id": 1, "name": "PC" }
 
 ### Genre
 
-Sample structure: { "id": 1, "name": "Accion" }
+**Sample structure:** { "id": 1, "name": "Accion" }
 
 * GET     ->  /api/genres       ->  Returns a list of all the genres
 * GET     ->  /api/genres/{id}  ->  Returns the genre that has the given id
@@ -49,7 +49,7 @@ Sample structure: { "id": 1, "name": "Accion" }
 
 ### Game
 
-Sample structure: { "id": 1, "title": "Super Mario Odyssey", "duration": 12, "yearReleased": 2017, "ageCalification": "PEGI 3", "description": "...", "dateInserted": "2022-08-18T00:00:00.000+00:00", "enabled": true, "borrowed": true, "developer": [developer structur], "platform": [platform structur] }
+**Sample structure:** { "id": 1, "title": "Super Mario Odyssey", "duration": 12, "yearReleased": 2017, "ageCalification": "PEGI 3", "description": "...", "dateInserted": "2022-08-18T00:00:00.000+00:00", "enabled": true, "borrowed": true, "developer": [developer structur], "platform": [platform structur] }
 
 * GET     ->  /api/games       ->  Returns a list of all the games
 * GET     ->  /api/games/{id}  ->  Returns the game that has the given id
@@ -59,7 +59,7 @@ Sample structure: { "id": 1, "title": "Super Mario Odyssey", "duration": 12, "ye
 
 ### User
 
-Sample structure: { "id": 1, "username": "example", "email": "smelgar@example.com", "password": "...", "first_name": "example", "last_name": "example", "role": "user" }
+**Sample structure:** { "id": 1, "username": "example", "email": "smelgar@example.com", "password": "...", "first_name": "example", "last_name": "example", "role": "user" }
 
 * GET     ->  /api/users       ->  Returns a list of all the users
 * GET     ->  /api/users/{id}  ->  Returns the user that has the given id
@@ -69,7 +69,7 @@ Sample structure: { "id": 1, "username": "example", "email": "smelgar@example.co
 
 ### Borrow
 
-Sample structure: { "id": 1, "game": [game structure], "userOwner": [user structure], "userBorrower": [user structure], "lend_date": "2022-01-15T00:00:00.000+00:00", "return_date": "2022-02-15T00:00:00.000+00:00", "pending": true }
+**Sample structure:** { "id": 1, "game": [game structure], "userOwner": [user structure], "userBorrower": [user structure], "lend_date": "2022-01-15T00:00:00.000+00:00", "return_date": "2022-02-15T00:00:00.000+00:00", "pending": true }
 
 * GET     ->  /api/borrows       ->  Returns a list of all the loans
 * GET     ->  /api/borrows/{id}  ->  Returns the loan that has the given id
@@ -79,7 +79,7 @@ Sample structure: { "id": 1, "game": [game structure], "userOwner": [user struct
 
 ### Own
 
-Sample structure: { "id": 1,"game": [game structure], "userOldOwner": [user structure], "userNewOwner": [user structure], "exchange_date": "2021-12-03T00:00:00.000+00:00", "pending": false }
+**Sample structure:** { "id": 1,"game": [game structure], "userOldOwner": [user structure], "userNewOwner": [user structure], "exchange_date": "2021-12-03T00:00:00.000+00:00", "pending": false }
 
 * GET     ->  /api/owns       ->  Returns a list of all the exchanges
 * GET     ->  /api/owns/{id}  ->  Returns the exchange that has the given id
@@ -89,7 +89,7 @@ Sample structure: { "id": 1,"game": [game structure], "userOldOwner": [user stru
 
 ### GameHaveGenre
 
-Sample structure: { "id": 1, "game": [game structure], "genre": [genre structure] }
+**Sample structure:** { "id": 1, "game": [game structure], "genre": [genre structure] }
 
 * GET     ->  /api/gameHaveGenres       ->  Returns a list of all the gameHaveGenres
 * GET     ->  /api/gameHaveGenres/{id}  ->  Returns the gameHaveGenres that has the given id
