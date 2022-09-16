@@ -94,7 +94,7 @@ We have different objects:
 * POST    ->  /api/owns       ->  Insert a new exchange with the specified data structure
 * PUT     ->  /api/owns/{id}  ->  Update a exchange indicating the id
 * DELETE  ->  /api/owns/{id}  ->  Delete the exchange that contains the specified id
-* GET     ->  /api/owns/{id}/{state}  -> NIDEA!!
+* GET     ->  /api/owns/{id}/{state}  -> Returns a list of the exchanges of the future former owner asking the status, so that the future former owner can accept or deny the exchange.
 
 ### GameHaveGenre
 
