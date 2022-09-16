@@ -51,11 +51,14 @@ We have different objects:
 
 **Sample structure:** { "id": 1, "title": "Super Mario Odyssey", "duration": 12, "yearReleased": 2017, "ageCalification": "PEGI 3", "description": "...", "dateInserted": "2022-08-18T00:00:00.000+00:00", "enabled": true, "borrowed": true, "developer": [developer structur], "platform": [platform structur] }
 
-* GET     ->  /api/games       ->  Returns a list of all the games
-* GET     ->  /api/games/{id}  ->  Returns the game that has the given id
-* POST    ->  /api/games       ->  Insert a new game with the specified data structure
-* PUT     ->  /api/games/{id}  ->  Update a game indicating the id
-* DELETE  ->  /api/games/{id}  ->  Delete the game that contains the specified id
+* GET     ->  /api/games                 ->  Returns a list of all the games
+* GET     ->  /api/games/{id}            ->  Returns the game that has the given id
+* POST    ->  /api/games                 ->  Insert a new game with the specified data structure
+* PUT     ->  /api/games/{id}            ->  Update a game indicating the id
+* DELETE  ->  /api/games/{id}            ->  Delete the game that contains the specified id
+* GET     ->  /api/games/developer/{id}      ->  Returns a list of all games made by the specified developer
+* GET     ->  /api/games/platform/{id}       ->  Returns a list with all the games that have the indicated genre
+* GET     ->  /api/games/borrowed/{borrowed} ->  Returns whether the game is borrowed or not
 
 ### User
 
@@ -76,6 +79,11 @@ We have different objects:
 * POST    ->  /api/borrows       ->  Insert a new loan with the specified data structure
 * PUT     ->  /api/borrows/{id}  ->  Update a loan indicating the id
 * DELETE  ->  /api/borrows/{id}  ->  Delete the loan that contains the specified id
+* GET     ->  /api/borrows/borrower/{id}  ->  Returns a list of games that have been loaned to you
+* PUT     ->  /api/acceptborrow/{id}      ->  Accept the loan and indicate the return date.
+* GET     ->  /api/borrows/user/{id}      ->  Listing of all loans whether you are the owner or the lender
+* GET     ->  /api/borrows/{id}/{state}   ->  Returns loans with the indicated status of a user
+* GET     ->  /api/borrows/owner/{id}     ->  Returns loans where the owner is the specified user
 
 ### Own
 
@@ -86,13 +94,15 @@ We have different objects:
 * POST    ->  /api/owns       ->  Insert a new exchange with the specified data structure
 * PUT     ->  /api/owns/{id}  ->  Update a exchange indicating the id
 * DELETE  ->  /api/owns/{id}  ->  Delete the exchange that contains the specified id
+* GET     ->  /api/owns/{id}/{state}  -> NIDEA!!
 
 ### GameHaveGenre
 
 **Sample structure:** { "id": 1, "game": [game structure], "genre": [genre structure] }
 
-* GET     ->  /api/gameHaveGenres       ->  Returns a list of all the gameHaveGenres
-* GET     ->  /api/gameHaveGenres/{id}  ->  Returns the gameHaveGenres that has the given id
-* POST    ->  /api/gameHaveGenres       ->  Insert a new gameHaveGenres with the specified data structure
-* PUT     ->  /api/gameHaveGenres/{id}  ->  Update a developer gameHaveGenres the id
-* DELETE  ->  /api/gameHaveGenres/{id}  ->  Delete the gameHaveGenres that contains the specified id
+* GET     ->  /api/gameHaveGenres             ->  Returns a list of all the gameHaveGenres
+* GET     ->  /api/gameHaveGenres/{id}        ->  Returns the gameHaveGenres that has the given id
+* POST    ->  /api/gameHaveGenres             ->  Insert a new gameHaveGenres with the specified data structure
+* PUT     ->  /api/gameHaveGenres/{id}        ->  Update a developer gameHaveGenres the id
+* DELETE  ->  /api/gameHaveGenres/{id}        ->  Delete the gameHaveGenres that contains the specified id
+* GET     ->  /api/gameHaveGenres/genre/{id}  ->  Returns all games with the indicated genre
