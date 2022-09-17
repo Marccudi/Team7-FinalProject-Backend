@@ -6,14 +6,14 @@ The data is hosted in a MySQL database and sent through an API to the Fornt-end.
 
 We have different objects:
 
-* Developer: Here we store the developer's name
-* Platform: Here we store the platform's name
-* Genre: Here we store the genre's name
-* Game: Here we store all the information of the game: the title, the duration, the year of publication, the age rating, the description, the date of insertion to the database, the id of the developer, the genre, if it is active and if it is on loan.
-* User: Here we store all the user information, user name, email, password, first name, last name and role.
-* Borrow: Here we store all the loans of the game, the game id, the owner id, the borrower id, the loan date, the return date and if it is pending confirmation by the owner.
-* Own: Here we store all game exchanges, the id of the game, the id of the old owner, the id of the new owner, the date of the exchange, and if it is pending confirmation by the owner.
-* GameHaveGenre: Here we make the relationship between the game table and the genre table, we have the id of the game and the id of the genre.
+* Developer: Stores the developer's name
+* Platform: Stores the platform's name
+* Genre: Stores the genre's name
+* Game: Stores the information of the game: the title, the duration, the year of publication, the age rating, the description, the date of insertion to the database, the id of the developer, the genre, if it is active and if it is on loan.
+* User: Stores the user information, username, email, password, first name, last name and role.
+* Borrow: Stores the loans of the game, the game id, the owner id, the borrower id, the loan date, the return date and if it is pending confirmation by the owner.
+* Own: Stores game exchanges, the game id, the id of the previous owner, the id of the new owner, the date of the exchange, and if it's pending confirmation by the owner.
+* GameHaveGenre: Establishes the relationship between the game and genre tables, has the id of game and owner.
 
 ## ENDPOINTS
 
@@ -49,7 +49,7 @@ We have different objects:
 
 ### Game
 
-**Sample structure:** { "id": 1, "title": "Super Mario Odyssey", "duration": 12, "yearReleased": 2017, "ageCalification": "PEGI 3", "description": "...", "dateInserted": "2022-08-18T00:00:00.000+00:00", "enabled": true, "borrowed": true, "developer": [developer structur], "platform": [platform structur] }
+**Sample structure:** { "id": 1, "title": "Super Mario Odyssey", "duration": 12, "yearReleased": 2017, "ageCalification": "PEGI 3", "description": "...", "dateInserted": "2022-08-18T00:00:00.000+00:00", "enabled": true, "borrowed": true, "developer": [developer structure], "platform": [platform structure] }
 
 * GET     ->  /api/games                 ->  Returns a list of all the games
 * GET     ->  /api/games/{id}            ->  Returns the game that has the given id
