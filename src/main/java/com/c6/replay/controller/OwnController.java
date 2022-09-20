@@ -18,6 +18,7 @@ import com.c6.replay.dto.Own;
 import com.c6.replay.service.OwnServiceImpl;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api")
 public class OwnController {
 

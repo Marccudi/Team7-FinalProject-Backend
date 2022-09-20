@@ -18,6 +18,7 @@ import com.c6.replay.dto.Developer;
 import com.c6.replay.service.DeveloperServiceImpl;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api")
 public class DeveloperController {
 	@Autowired

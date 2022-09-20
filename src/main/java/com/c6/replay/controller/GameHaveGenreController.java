@@ -19,6 +19,7 @@ import com.c6.replay.dto.GameHaveGenre;
 import com.c6.replay.service.GameHaveGenreServiceImpl;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api")
 public class GameHaveGenreController {
 

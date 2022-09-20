@@ -18,6 +18,7 @@ import com.c6.replay.dto.Platform;
 import com.c6.replay.service.PlatformServiceImpl;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api")
 public class PlatformController {
 	@Autowired

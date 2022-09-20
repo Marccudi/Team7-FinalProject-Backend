@@ -21,6 +21,7 @@ import com.c6.replay.dto.Borrow;
 import com.c6.replay.service.BorrowServiceImpl;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api")
 public class BorrowController {
 	

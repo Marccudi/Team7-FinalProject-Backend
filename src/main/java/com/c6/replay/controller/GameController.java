@@ -10,6 +10,7 @@ import com.c6.replay.dto.Game;
 import com.c6.replay.service.GameServiceImpl;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/api")
 public class GameController {
 	
