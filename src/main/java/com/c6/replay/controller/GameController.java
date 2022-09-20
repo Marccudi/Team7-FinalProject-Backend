@@ -36,13 +36,9 @@ public class GameController {
 	
 	@GetMapping("/games/{id}")
 	public Game gameXID(@PathVariable(name="id") int id) {
-		
 		Game game_xid= new Game();
-		
-		//Find game with id
 		game_xid=gameServiceImpl.gameXID(id);
 		
-		System.out.println("Game by ID: "+game_xid);
 		
 		if(game_xid.isEnabled()) {
 			return game_xid;
