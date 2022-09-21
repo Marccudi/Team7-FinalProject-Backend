@@ -44,7 +44,7 @@ public class Game {
 	Platform platform;
 	
 	@ManyToOne
-	@Column(name = "id_owner")
+	@JoinColumn(name = "id_owner")
 	User owner;
 	
 	@OneToMany
