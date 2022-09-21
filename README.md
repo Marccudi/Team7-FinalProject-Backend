@@ -59,6 +59,7 @@ We have different objects:
 * GET     ->  /api/games/developer/{id}      ->  Returns a list of all games made by the specified developer
 * GET     ->  /api/games/platform/{id}       ->  Returns a list with all the games that have the indicated genre
 * GET     ->  /api/games/borrowed/{borrowed} ->  Returns whether the game is borrowed or not
+* GET     ->  /api/games/user/{id}       ->  Returns all the games owned by the specified user
 
 ### User
 
