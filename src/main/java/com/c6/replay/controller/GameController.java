@@ -60,6 +60,7 @@ public class GameController {
 		
 		//Set the values to the given parameters
 		selectedGame.setTitle(game.getTitle());
+		selectedGame.setImage(game.getImage());
 		selectedGame.setDuration(game.getDuration());
 		selectedGame.setYearReleased(game.getYearReleased());
 		selectedGame.setAgeCalification(game.getAgeCalification());

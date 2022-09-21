@@ -19,5 +19,7 @@ public interface IOwnService {
 	public void deleteOwn(Long id); // Delete own by id
 	
 	public Own lastOwnGame(int idGame);
+	
+	public List<Own> listOwnsByUser(Long id);
 
 }

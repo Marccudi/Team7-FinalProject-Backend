@@ -32,6 +32,18 @@ public class OwnServiceImpl implements IOwnService{
 	        }
 	        return ownsByState;
 	}
+	
+	@Override
+    public List<Own> listOwnsByUser(Long id) {
+		 List<Own> ownsByState =  new ArrayList<>();
+
+	        for(Own own : listOwns()) {
+	            if(own.isPending()==false && own.getUserNewOwner().getId() == id) {
+	                ownsByState.add(own);
+	            }
+	        }
+	        return ownsByState;
+	}
 
 	@Override
 	public Own saveOwn(Own own) {
