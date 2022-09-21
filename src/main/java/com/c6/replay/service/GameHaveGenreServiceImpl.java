@@ -53,6 +53,17 @@ public class GameHaveGenreServiceImpl implements IGameHaveGenreService {
 		return a;
 	}
 	
+	@Override
+	public List<GameHaveGenre> genresXGame(int gameId){
+		List<GameHaveGenre> finale = listGameHaveGenres();
+		List<GameHaveGenre> a = new ArrayList<>();
+		for (int i = 0; i < finale.size(); i++) {
+			if (gameId == finale.get(i).getGame().getId()) {
+				a.add(finale.get(i));
+			}
+		}
+		return a;
+	}
 	
 
 }

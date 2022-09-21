@@ -19,4 +19,6 @@ public interface IGameHaveGenreService {
 
 	List<Game> gamesXGenere(int genreId);
 	
+	List<GameHaveGenre> genresXGame(int gameId);
+	
 }

@@ -79,6 +79,9 @@ public class GameHaveGenreController {
 		return gameHaveGenreServiceImpl.gamesXGenere(genreId);
 	}
 	
-	
+	@GetMapping("/gameHaveGenres/game/{id}")
+	public List<GameHaveGenre> ganresXGames(@PathVariable(name="id") int id) {
+		return gameHaveGenreServiceImpl.genresXGame(id);
+	}
 
 }
