@@ -106,3 +106,4 @@ We have different objects:
 * PUT     ->  /api/gameHaveGenres/{id}        ->  Update a developer gameHaveGenres the id
 * DELETE  ->  /api/gameHaveGenres/{id}        ->  Delete the gameHaveGenres that contains the specified id
 * GET     ->  /api/gameHaveGenres/genre/{id}  ->  Returns all games with the indicated genre
+* GET     ->  /api/gameHaveGenres/game/{id}   ->  Returns all ganres with the indicated game
