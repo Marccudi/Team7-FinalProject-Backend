@@ -62,4 +62,9 @@ public class UserServiceImpl implements IUserService, UserDetailsService{
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), emptyList());
 	}
 
+	@Override
+	public User findByUsername(String username) {
+		return iUserDAO.findByUsername(username);
+	}
+
 }

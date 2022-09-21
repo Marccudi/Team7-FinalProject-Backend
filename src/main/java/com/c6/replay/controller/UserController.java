@@ -51,6 +51,11 @@ public class UserController {
 		return userServiceImpl.listUsers();
 	}
 	
+	@GetMapping("/users/username/{username}")
+	public User getUserByUsername(@PathVariable(name="username") String username) {
+		return userServiceImpl.findByUsername(username);
+	}
+	
 	@PostMapping("/users")
 	public User saveUser(@RequestBody User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

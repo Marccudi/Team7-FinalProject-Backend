@@ -8,6 +8,8 @@ public interface IUserService {
 	
 	public List<User> listUsers(); // List all the users
 	
+	public User findByUsername(String username);
+	
 	public User saveUser(User user); // Save a user
 	
 	public User userXID(Long id); // List one user by id
