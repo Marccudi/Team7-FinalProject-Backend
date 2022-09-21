@@ -16,6 +16,8 @@ public class Game {
 	private int id;
 	@Column(name = "title")
 	private String title;
+	@Column(name = "image")
+	private String image;
 	@Column(name = "duration")
 	private int duration;
 	@Column(name = "year_released")
@@ -56,12 +58,13 @@ public class Game {
 		super();
 	}
 
-	public Game(int id, String title, int duration, int yearReleased, String ageCalification, String description, Date dateInserted,
+	public Game(int id, String title, String image, int duration, int yearReleased, String ageCalification, String description, Date dateInserted,
 			boolean enabled, Developer developer, Platform platform, List<Borrow> owns, List<Own> borrows,
 			List<GameHaveGenre> gameHaveGenres) {
 		super();
 		this.id = id;
 		this.title = title;
+		this.image=image;
 		this.duration = duration;
 		this.yearReleased = yearReleased;
 		this.ageCalification = ageCalification;
@@ -90,6 +93,20 @@ public class Game {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	/**
+	 * @return the image
+	 */
+	public String getImage() {
+		return image;
+	}
+
+	/**
+	 * @param image the image to set
+	 */
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public int getDuration() {
@@ -202,10 +219,10 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", title=" + title + ", duration=" + duration + ", yearReleased=" + yearReleased
-				+ ", ageCalification=" + ageCalification + ", description=" + description + ", dateInserted="
-				+ dateInserted + ", enabled=" + enabled + ", borrowed=" + borrowed + ", developer=" + developer
-				+ ", platform=" + platform + ", owns=" + owns + ", borrows=" + borrows + ", gameHaveGenres="
+		return "Game [id=" + id + ", title=" + title + ", image=" + image + ", duration=" + duration + ", yearReleased="
+				+ yearReleased + ", ageCalification=" + ageCalification + ", description=" + description
+				+ ", dateInserted=" + dateInserted + ", enabled=" + enabled + ", borrowed=" + borrowed + ", developer="
+				+ developer + ", platform=" + platform + ", owns=" + owns + ", borrows=" + borrows + ", gameHaveGenres="
 				+ gameHaveGenres + "]";
 	}
 
