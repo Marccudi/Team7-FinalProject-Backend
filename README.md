@@ -95,7 +95,6 @@ We have different objects:
 * PUT     ->  /api/owns/{id}  ->  Update a exchange indicating the id
 * DELETE  ->  /api/owns/{id}  ->  Delete the exchange that contains the specified id
 * GET     ->  /api/owns/{id}/{state}  -> Returns a list of the exchanges of the future former owner asking the status, so that the future former owner can accept or deny the exchange.
-* GET     ->  /api/owns/user/{id}     -> Returns all properties of the specified user
 
 ### GameHaveGenre
 
