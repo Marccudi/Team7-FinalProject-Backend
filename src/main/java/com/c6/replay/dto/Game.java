@@ -34,6 +34,7 @@ public class Game {
 	@Column(name = "borrowed")
 	private boolean borrowed;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "id_developer")
 	Developer developer;
@@ -41,6 +42,10 @@ public class Game {
 	@ManyToOne
 	@JoinColumn(name = "id_platform")
 	Platform platform;
+	
+	@ManyToOne
+	@Column(name = "id_owner")
+	User owner;
 	
 	@OneToMany
 	@JoinColumn(name="id")
@@ -59,7 +64,7 @@ public class Game {
 	}
 
 	public Game(int id, String title, String image, int duration, int yearReleased, String ageCalification, String description, Date dateInserted,
-			boolean enabled, Developer developer, Platform platform, List<Borrow> owns, List<Own> borrows,
+			boolean enabled, Developer developer, Platform platform, User owner, List<Borrow> owns, List<Own> borrows,
 			List<GameHaveGenre> gameHaveGenres) {
 		super();
 		this.id = id;
@@ -73,6 +78,7 @@ public class Game {
 		this.enabled = enabled;
 		this.developer = developer;
 		this.platform = platform;
+		this.owner=owner;
 		this.owns = owns;
 		this.borrows = borrows;
 		this.gameHaveGenres = gameHaveGenres;
@@ -174,6 +180,20 @@ public class Game {
 	}
 
 	/**
+	 * @return the owner
+	 */
+	public User getOwner() {
+		return owner;
+	}
+
+	/**
+	 * @param owner the owner to set
+	 */
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
+	/**
 	 * @return the borrowed
 	 */
 	public boolean isBorrowed() {
@@ -222,8 +242,8 @@ public class Game {
 		return "Game [id=" + id + ", title=" + title + ", image=" + image + ", duration=" + duration + ", yearReleased="
 				+ yearReleased + ", ageCalification=" + ageCalification + ", description=" + description
 				+ ", dateInserted=" + dateInserted + ", enabled=" + enabled + ", borrowed=" + borrowed + ", developer="
-				+ developer + ", platform=" + platform + ", owns=" + owns + ", borrows=" + borrows + ", gameHaveGenres="
-				+ gameHaveGenres + "]";
+				+ developer + ", platform=" + platform + ", owner=" + owner + ", owns=" + owns + ", borrows=" + borrows
+				+ ", gameHaveGenres=" + gameHaveGenres + "]";
 	}
 
 }

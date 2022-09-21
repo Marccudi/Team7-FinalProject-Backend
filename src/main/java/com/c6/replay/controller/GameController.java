@@ -102,6 +102,11 @@ public class GameController {
 	List<Game> listGameIfBorrowed(@PathVariable(name="borrowed")boolean borrowed){
 		return gameServiceImpl.listGameIfBorrowed(borrowed);
 	}
+	
+	@GetMapping("/games/user/{id}")
+	List<Game> listGamesofUser(@PathVariable(name="id")int id_user){
+		return gameServiceImpl.listGamesofUser(id_user);
+	}
 
 
 }

@@ -92,6 +92,19 @@ public class GameServiceImpl implements IGameService {
 		return finale;
 	}
 
+	@Override
+	public List<Game> listGamesofUser(int idUser) {
+		List<Game> a = listGames();
+		List<Game> finale = new ArrayList<>();
+
+		for (int i = 0; i < a.size(); i++) {
+			if (idUser == a.get(i).getOwner().getId()) {
+				finale.add(a.get(i));
+			}
+		}
+		return finale;
+	}
+
 	
 
 	

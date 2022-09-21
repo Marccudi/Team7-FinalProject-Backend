@@ -48,11 +48,6 @@ public class OwnController {
         return ownServiceImpl.listOwnsByState(state, id);
     }
 	
-	@GetMapping("/owns/user/{id}")
-    public List<Own> listOwnsByUser(@PathVariable(name="id")Long id){
-        return ownServiceImpl.listOwnsByUser(id);
-    }
-	
 	@PutMapping("/owns/{id}")
 	public Own updateOwn(@PathVariable(name="id") Long id, @RequestBody Own own) {
 		

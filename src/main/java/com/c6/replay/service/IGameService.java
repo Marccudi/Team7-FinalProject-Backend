@@ -21,5 +21,7 @@ public interface IGameService {
 	List<Game> GameXPlatform(int Platformid);
 
 	List<Game> listGameIfBorrowed(boolean borrowed);
+	
+	List<Game> listGamesofUser(int idUser);
 
 }

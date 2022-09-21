@@ -55,6 +55,10 @@ public class User {
 	@OneToMany
 	@JoinColumn(name="id_new_owner")
 	private List<Borrow> ownBorrower; // list of the owns where the user is the new owner of the game
+	
+	@OneToMany
+	@JoinColumn(name="owner")
+	private List<Game> ownGames; // list of the owns where the user is the new owner of the game
 
 	/**
 	 * @param user_name
@@ -239,6 +243,24 @@ public class User {
 	 */
 	public void setOwnBorrower(List<Borrow> ownBorrower) {
 		this.ownBorrower = ownBorrower;
+	}
+	
+	
+
+	/**
+	 * @return the ownGames
+	 */
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Game")
+	public List<Game> getOwnGames() {
+		return ownGames;
+	}
+
+	/**
+	 * @param ownGames the ownGames to set
+	 */
+	public void setOwnGames(List<Game> ownGames) {
+		this.ownGames = ownGames;
 	}
 
 	@Override
