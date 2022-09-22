@@ -84,6 +84,7 @@ public class GameController {
 			return "No eres su propietario";
 		} else {
 			deletedGame.setEnabled(false);
+			gameServiceImpl.updateGame(deletedGame);
 			return "Juego desactivado";
 		}
 		

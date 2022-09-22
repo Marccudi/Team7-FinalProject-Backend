@@ -12,6 +12,7 @@ import com.c6.replay.dto.Game;
 import com.c6.replay.dto.GameHaveGenre;
 import com.c6.replay.dto.Genre;
 import com.c6.replay.dto.Own;
+import com.c6.replay.dto.User;
 
 @Service
 public class GameServiceImpl implements IGameService {
@@ -44,8 +45,8 @@ public class GameServiceImpl implements IGameService {
 
 	@Override
 	public Game deleteGame(int gameId, int userId) {
-		Own a = ownServiceImpl.lastOwnGame(gameId);
-		if (a.getUserNewOwner().getId() == userId) {
+		User owner = gameXID(gameId).getOwner();;
+		if (owner.getId() == userId) {
 			return gameXID(gameId);
 		}else {
 			return null;
