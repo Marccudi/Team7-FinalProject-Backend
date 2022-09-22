@@ -59,6 +59,7 @@ public class UserController {
 	@PostMapping("/users")
 	public User saveUser(@RequestBody User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setRole("user");
 		return userServiceImpl.saveUser(user);
 	}
 	
@@ -79,11 +80,9 @@ public class UserController {
 		userSel= userServiceImpl.userXID(id);
 		
 		userSel.setUsername(user.getUsername());
-		userSel.setEmail(user.getEmail());
 		userSel.setPassword(user.getPassword());
 		userSel.setFirst_name(user.getFirst_name());
 		userSel.setLast_name(user.getLast_name());
-		userSel.setRole(user.getRole());
 		
 		userAct=userServiceImpl.updateUser(userSel);
 		
