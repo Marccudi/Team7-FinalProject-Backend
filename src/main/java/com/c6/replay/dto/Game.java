@@ -63,19 +63,17 @@ public class Game {
 		super();
 	}
 
-	public Game(int id, String title, String image, int duration, int yearReleased, String ageCalification, String description, Date dateInserted,
-			boolean enabled, Developer developer, Platform platform, User owner, List<Borrow> owns, List<Own> borrows,
+	public Game(String title, String image, int duration, int yearReleased, String ageCalification, String description,
+			Developer developer, Platform platform, User owner, List<Borrow> owns, List<Own> borrows,
 			List<GameHaveGenre> gameHaveGenres) {
 		super();
-		this.id = id;
 		this.title = title;
 		this.image=image;
 		this.duration = duration;
 		this.yearReleased = yearReleased;
 		this.ageCalification = ageCalification;
 		this.description = description;
-		this.dateInserted = dateInserted;
-		this.enabled = enabled;
+		this.enabled = true;
 		this.developer = developer;
 		this.platform = platform;
 		this.owner=owner;
