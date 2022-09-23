@@ -46,10 +46,10 @@ public class UserController {
 	      .body("Response with header using ResponseEntity");
 	}
 
-	@GetMapping("/users")
+	/*@GetMapping("/users")
 	public List<User> listUsers(){
 		return userServiceImpl.listUsers();
-	}
+	}*/
 	
 	@GetMapping("/users/username/{username}")
 	public User getUserByUsername(@PathVariable(name="username") String username) {
@@ -89,7 +89,7 @@ public class UserController {
 		return userAct;
 	}
 	
-	@DeleteMapping("/users/{id}")
+	/*@DeleteMapping("/users/{id}")
 	public String deleteUser(@PathVariable(name="id") Long id) {
 		try {
 			userServiceImpl.deleteUser(id);
@@ -97,5 +97,5 @@ public class UserController {
 		}catch (Exception e) {
 			return "Error: you cannot delete this user";
 		}
-	}
+	}*/
 }
