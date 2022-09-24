@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import com.c6.replay.dto.Game;
 import com.c6.replay.service.GameServiceImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
@@ -16,6 +19,8 @@ public class GameController {
 	
 	@Autowired
 	GameServiceImpl gameServiceImpl;
+	
+	private Gson gson = new Gson();
 	
 	@GetMapping("/games")
 	public List<Game> listGames() {
@@ -77,15 +82,18 @@ public class GameController {
 		return updatedGame;
 	}
 	
-	@DeleteMapping("/games/{gameId}/{userId}")
+	@DeleteMapping(value = "/games/{gameId}/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String deleteGame(@PathVariable(name="gameId")int gameId,@PathVariable(name="userId")int userId) {
 		Game deletedGame = gameServiceImpl.deleteGame(gameId, userId);
+		JsonObject json = new JsonObject();
 		if (deletedGame == null) {
-			return "No eres su propietario";
+	        json.addProperty("msg", "El juego no es de tu propiedad");
+	        return this.gson.toJson(json);
 		} else {
 			deletedGame.setEnabled(false);
 			gameServiceImpl.updateGame(deletedGame);
-			return "Juego desactivado";
+			json.addProperty("msg", "El juego no es de tu propiedad");
+			return this.gson.toJson(json);
 		}
 		
 	}
