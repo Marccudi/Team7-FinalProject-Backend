@@ -24,14 +24,7 @@ public class GameController {
 	
 	@GetMapping("/games")
 	public List<Game> listGames() {
-		List<Game> allGames = gameServiceImpl.listGames();
-		List<Game> enabledGames = new ArrayList<Game>();
-		for (Game game : allGames) {
-			if ( game.isEnabled() ) {
-				enabledGames.add(game);
-			}
-		}
-		return enabledGames;
+		return gameServiceImpl.listGames();
 	}
 	
 	@PostMapping("/games")

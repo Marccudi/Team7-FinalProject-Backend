@@ -25,7 +25,14 @@ public class GameServiceImpl implements IGameService {
 	
 	@Override
 	public List<Game> listGames() {
-		return iGameDAO.findAll();
+		List<Game> allGames = iGameDAO.findAll();
+		List<Game> enabledGames = new ArrayList<Game>();
+		for (Game game : allGames) {
+			if ( game.isEnabled() ) {
+				enabledGames.add(game);
+			}
+		}
+		return enabledGames;
 	}
 
 	@Override
