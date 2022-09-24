@@ -85,7 +85,7 @@ public class GameController {
 		} else {
 			deletedGame.setEnabled(false);
 			gameServiceImpl.updateGame(deletedGame);
-			json.addProperty("msg", "El juego no es de tu propiedad");
+			json.addProperty("msg", "Juego borrado");
 			return this.gson.toJson(json);
 		}
 		
