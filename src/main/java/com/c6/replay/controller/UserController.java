@@ -80,7 +80,7 @@ public class UserController {
 		userSel= userServiceImpl.userXID(id);
 		
 		userSel.setUsername(user.getUsername());
-		userSel.setPassword(user.getPassword());
+		userSel.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userSel.setFirst_name(user.getFirst_name());
 		userSel.setLast_name(user.getLast_name());
 		
