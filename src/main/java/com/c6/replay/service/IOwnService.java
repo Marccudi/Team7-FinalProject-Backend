@@ -18,6 +18,6 @@ public interface IOwnService {
 	
 	public void deleteOwn(Long id); // Delete own by id
 	
-	public Own lastOwnGame(int idGame);
+	//public Own lastOwnGame(int idGame);
 
 }

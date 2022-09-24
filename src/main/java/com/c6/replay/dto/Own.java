@@ -20,8 +20,12 @@ public class Own {
 	private Long id; // AutoIncremental ID
 	
 	@ManyToOne
-	@JoinColumn(name="id_game")
-	private Game game; // Changed game
+	@JoinColumn(name="id_game_old_owner")
+	private Game gameOldOwner; // Changed game
+	
+	@ManyToOne
+	@JoinColumn(name="id_game_new_owner")
+	private Game gameNewOwner; // Changed game
 	
 	@ManyToOne
 	@JoinColumn(name="id_old_owner")
@@ -51,10 +55,11 @@ public class Own {
 	 * @param userNewOwner
 	 * @param lend_date
 	 */
-	public Own(Long id, Game game, User userOldOwner, User userNewOwner, Date lend_date) {
+	public Own(Long id, Game gameOldOwner, Game gameNewOwner, User userOldOwner, User userNewOwner, Date lend_date) {
 		super();
 		this.id = id;
-		this.game = game;
+		this.gameOldOwner = gameOldOwner;
+		this.gameNewOwner = gameNewOwner;
 		this.userOldOwner = userOldOwner;
 		this.userNewOwner = userNewOwner;
 		this.exchange_date = lend_date;
@@ -76,17 +81,31 @@ public class Own {
 	}
 
 	/**
-	 * @return the game
+	 * @return the gameOldOwner
 	 */
-	public Game getGame() {
-		return game;
+	public Game getGameOldOwner() {
+		return gameOldOwner;
 	}
 
 	/**
-	 * @param game the game to set
+	 * @param gameOldOwner the gameOldOwner to set
 	 */
-	public void setGame(Game game) {
-		this.game = game;
+	public void setGameOldOwner(Game gameOldOwner) {
+		this.gameOldOwner = gameOldOwner;
+	}
+
+	/**
+	 * @return the gameNewOwner
+	 */
+	public Game getGameNewOwner() {
+		return gameNewOwner;
+	}
+
+	/**
+	 * @param gameNewOwner the gameNewOwner to set
+	 */
+	public void setGameNewOwner(Game gameNewOwner) {
+		this.gameNewOwner = gameNewOwner;
 	}
 
 	/**
@@ -147,7 +166,8 @@ public class Own {
 
 	@Override
 	public String toString() {
-		return "Own [id=" + id + ", game=" + game + ", userOldOwner=" + userOldOwner + ", userNewOwner=" + userNewOwner
-				+ ", exchange_date=" + exchange_date + ", pending=" + pending + "]";
-	}	
+		return "Own [id=" + id + ", gameOldOwner=" + gameOldOwner + ", gameNewOwner=" + gameNewOwner + ", userOldOwner="
+				+ userOldOwner + ", userNewOwner=" + userNewOwner + ", exchange_date=" + exchange_date + ", pending="
+				+ pending + "]";
+	}
 }

@@ -56,7 +56,8 @@ public class OwnController {
 		
 		ownSel=ownServiceImpl.ownXID(id);
 		
-		ownSel.setGame(own.getGame());
+		ownSel.setGameOldOwner(own.getGameOldOwner());
+		ownSel.setGameNewOwner(own.getGameNewOwner());
 		ownSel.setUserOldOwner(own.getUserOldOwner());
 		ownSel.setUserNewOwner(own.getUserNewOwner());
 		ownSel.setExchange_date(own.getExchange_date());
