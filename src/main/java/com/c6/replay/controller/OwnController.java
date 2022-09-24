@@ -61,6 +61,7 @@ public class OwnController {
 		ownSel.setUserOldOwner(own.getUserOldOwner());
 		ownSel.setUserNewOwner(own.getUserNewOwner());
 		ownSel.setExchange_date(own.getExchange_date());
+		ownSel.setPending(own.isPending());
 		
 		ownAct=ownServiceImpl.updateOwn(ownSel);
 		
